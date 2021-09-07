@@ -1,0 +1,5 @@
+converters\DateConverter.class
+converters\TicketConverter.class
+steps\Aprender_Cucumber_Step.class
+steps\Alugar_Filme_Step.class
+runners\RunnerTest.class
