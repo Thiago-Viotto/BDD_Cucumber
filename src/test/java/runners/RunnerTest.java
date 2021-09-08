@@ -11,9 +11,9 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		plugin = {"pretty"}, 
 		monochrome = true, 
 		snippets = SnippetType.CAMELCASE, 
-		features = "src/test/resources/features/locadora.feature", 
-		glue="steps"
-//		tags = "not @ignore"
+		features = "src/test/resources/features/cadastro_conta.feature", 
+		glue="steps",
+		tags = "not @ignore"
 //		tags = "@regression"
 //		tags = "@feature"
 //		tags = "(@smoke or @fast) and (not ignore)"
