@@ -1,6 +1,9 @@
 package runners;
 
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;

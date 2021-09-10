@@ -37,7 +37,7 @@ public class Conta {
 
 	@Então("visualizo a página inicial")
 	public void visualizoAPáginaInicial() {
-		String alert = driver.findElement(By.className("alert-success")).getText();
+		String alert = driver.findElement(By.className("alert")).getText();
 		org.junit.Assert.assertEquals("Bem vindo, Thiago!", alert);
 	}
 
@@ -62,30 +62,12 @@ public class Conta {
 		driver.findElement(By.className("btn-primary")).click();
 	}
 
-	@Então("a conta é inserida com sucesso")
-	public void aContaÉInseridaComSucesso() {
-		String conta = driver.findElement(By.xpath("//td[text()='" + contaEsperada + "']")).getText();
-		String alert = driver.findElement(By.className("alert-success")).getText();
-		org.junit.Assert.assertEquals("Conta adicionada com sucesso!", alert);
-		org.junit.Assert.assertEquals(contaEsperada, conta);
+	@Então("recebo a mensagem {string}")
+	public void receboAMensagem(String string) {
+		String alert = driver.findElement(By.className("alert")).getText();
+		org.junit.Assert.assertEquals(string, alert);
 	}
 
-	@Então("sou notificar que o nome da conta é obrigatório")
-	public void souNotificarQueONomeDaContaÉObrigatório() {
-		String alert = driver.findElement(By.className("alert-danger")).getText();
-		org.junit.Assert.assertEquals("Informe o nome da conta", alert);
-
-		// checa se o elemento não está visível
-		org.junit.Assert.assertEquals(0, driver.findElements(By.id("tabelaContas")).size());
-	}
-
-	@Então("sou notificado que já existe uma conta com esse nome")
-	public void souNotificadoQueJáExisteUmaContaComEsseNome() {
-		String alert = driver.findElement(By.className("alert-danger")).getText();
-		org.junit.Assert.assertEquals("Já existe uma conta com esse nome!", alert);
-		org.junit.Assert.assertEquals(0, driver.findElements(By.id("tabelaContas")).size());
-	}
-	
 	@After
 	public void fechar() {
 		driver.quit();
