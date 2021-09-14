@@ -75,7 +75,7 @@ public class Conta {
 		org.junit.Assert.assertEquals(string, alert);
 	}
 
-	@After(order = 1) // roda primeiro
+	@After(order = 1, value = "@functional") // roda primeiro
 	public void screenshot(Scenario cenario) {
 		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try {
@@ -85,7 +85,7 @@ public class Conta {
 		}
 	}
 
-	@After(order = 0) // roda depois do 1
+	@After(order = 0, value = "@functional") // roda depois do 1
 	public void fechar() {
 		driver.quit();
 	}

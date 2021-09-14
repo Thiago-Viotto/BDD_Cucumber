@@ -1,4 +1,6 @@
 #language: pt
+
+@functional
 Funcionalidade: Cadastro de contas
   Como um usuário 
   Gostaria de cadastrar contas

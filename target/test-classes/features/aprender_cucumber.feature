@@ -1,5 +1,6 @@
 # language: pt
 
+@unit
 Funcionalidade: Saldo
 
 #Cenário: Deve sacar sem ter dinheiro na conta bancária
