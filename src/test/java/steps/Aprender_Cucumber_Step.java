@@ -5,7 +5,6 @@ import java.util.Date;
 
 import org.junit.Assert;
 
-import converters.DateConverter;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
@@ -17,7 +16,7 @@ public class Aprender_Cucumber_Step {
 
 	@Dado("que a data da entrega é dia {}")
 	public void queADataDaEntregaÉDia(String data) throws ParseException {
-		DateConverter dateConverter = new DateConverter();
+		ParameterTypes dateConverter = new ParameterTypes();
 		entrega = dateConverter.dateConverter(data);
 	}
 
@@ -32,20 +31,17 @@ public class Aprender_Cucumber_Step {
 	@Então("a data da entrega será dia {}")
 	public void aDataDaEntregaSeráDia(String data) throws ParseException {
 		Date dataAtualizadaFormatada = new Date();
-		DateConverter dateConverter = new DateConverter();
+		ParameterTypes dateConverter = new ParameterTypes();
 		dataAtualizadaFormatada = dateConverter.dateConverter(data);
 
 		Assert.assertEquals(dataAtualizadaFormatada, entrega);
 	}
 
-	@ParameterType("ticket|ticket especial") // regexp
-	public String isTicketSpecial(String option) { // type, name (from method)
-		return option;
-	}
 	
 	@Dado("que o {isTicketSpecial} é {string}")
 	public void que_o_ticket_é(String tipo, String ticketRecebido) {
-		isTicketSpecial(tipo);
+		ParameterTypes parameterTypes = new ParameterTypes();
+		parameterTypes.isTicketSpecial(tipo);
 	}
 
 	@Dado("que o valor da passagem é R$ {double}")
