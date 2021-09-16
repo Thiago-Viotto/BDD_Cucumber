@@ -45,7 +45,7 @@ public class Conta {
 	@Então("visualizo a página inicial")
 	public void visualizoAPáginaInicial() {
 		String alert = driver.findElement(By.className("alert")).getText();
-		org.junit.Assert.assertEquals("Bem vindo, Thiago!", alert);
+		org.junit.Assert.assertEquals("Bem vindo, a@a.com!", alert);
 	}
 
 	@Quando("seleciono Contas")
@@ -61,6 +61,7 @@ public class Conta {
 	@Quando("informo a conta {string}")
 	public void informoAConta(String string) {
 		contaEsperada = string;
+		driver.findElement(By.id("nome")).clear();
 		driver.findElement(By.id("nome")).sendKeys(string);
 	}
 
@@ -75,9 +76,14 @@ public class Conta {
 		org.junit.Assert.assertEquals(string, alert);
 	}
 
+	@Quando("clico no ícone de editar")
+	public void clicoNoÍconeDeEditar() {
+		driver.findElement(By.xpath("//*[@id=\"tabelaContas\"]/tbody/tr[1]/td[2]/a[1]/span")).click();
+	}
+
 	@After(order = 1, value = "@functional") // roda primeiro
 	public void screenshot(Scenario cenario) {
-		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(file, new File("target/screenshots/" + cenario.getName() + ".jpg"));
 		} catch (IOException e) {
