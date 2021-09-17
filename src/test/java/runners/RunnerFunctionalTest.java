@@ -16,7 +16,8 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		snippets = SnippetType.CAMELCASE, 
 		features = "src/test/resources/features/", 
 		glue="steps",
-		tags = "@functional"
+		tags = "@functional",
+		dryRun = false
 //		tags = "@regression"
 //		tags = "@feature"
 //		tags = "(@smoke or @fast) and (not ignore)"
