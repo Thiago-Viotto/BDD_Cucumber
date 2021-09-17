@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.cucumber.java.Before;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.CucumberOptions.SnippetType;
@@ -16,7 +17,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		snippets = SnippetType.CAMELCASE, 
 		features = "src/test/resources/features/", 
 		glue="steps",
-		tags = "@functional",
+		tags = "@movimentacao",
 		dryRun = false
 //		tags = "@regression"
 //		tags = "@feature"
@@ -24,5 +25,14 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		)
 
 public class RunnerFunctionalTest {
+	public WebDriver driver;
+	
+	public RunnerFunctionalTest() {
+		driver = new ChromeDriver();
+	}
+	
+	public WebDriver getDriver() {
+		return driver;
+	}
 
 }
