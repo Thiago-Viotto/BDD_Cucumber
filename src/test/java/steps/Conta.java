@@ -81,6 +81,11 @@ public class Conta {
 		driver.findElement(By.xpath("//*[@id=\"tabelaContas\"]/tbody/tr[1]/td[2]/a[1]/span")).click();
 	}
 
+	@Quando("clico no ícone de remover")
+	public void clicoNoÍconeDeRemover() {
+		driver.findElement(By.xpath("//*[@id=\"tabelaContas\"]/tbody/tr/td[2]/a[2]/span")).click();
+	}
+
 	@After(order = 1, value = "@functional") // roda primeiro
 	public void screenshot(Scenario cenario) {
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
