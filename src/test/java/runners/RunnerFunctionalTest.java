@@ -25,13 +25,10 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		)
 
 public class RunnerFunctionalTest {
-	public WebDriver driver;
+	private static WebDriver driver = new ChromeDriver();;
 	
-	public RunnerFunctionalTest() {
-		driver = new ChromeDriver();
-	}
-	
-	public WebDriver getDriver() {
+
+	public static WebDriver getDriver() {
 		return driver;
 	}
 
