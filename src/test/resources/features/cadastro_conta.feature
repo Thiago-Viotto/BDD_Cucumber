@@ -26,17 +26,28 @@ Funcionalidade: Cadastro de contas
   #|                  | Informe o nome da conta            |
   #| Conta mesmo nome | Já existe uma conta com esse nome! |
     
-  Esquema do Cenário: Deve validar ao editar conta
+  #Esquema do Cenário: Deve validar ao editar conta
+    #E informo a conta "<conta>"
+    #E seleciono Salvar
+    #Então recebo a mensagem "<mensagem1>"
+  #	Quando clico no ícone de editar
+    #E informo a conta "<contaEditada>"
+    #E seleciono Salvar
+    #Então recebo a mensagem "<mensagem2>"
+#
+#Exemplos:
+  #| conta               |          contaEditada              |               mensagem1            |         mensagem2                   |                 
+  #| Conta de Teste edit | Conta de Teste edited              | Conta adicionada com sucesso!      | Conta alterada com sucesso!         |
+  #| conta 3 edit        |                                    | Conta adicionada com sucesso!      | Informe o nome da conta             |   
+  #| Conta edit nome     | Conta mesmo nome                   |  Conta adicionada com sucesso!     |  Já existe uma conta com esse nome! |
+  
+  Esquema do Cenário: Deve remover conta
     E informo a conta "<conta>"
     E seleciono Salvar
     Então recebo a mensagem "<mensagem1>"
-  	Quando clico no ícone de editar
-    E informo a conta "<contaEditada>"
-    E seleciono Salvar
+  	Quando clico no ícone de remover
     Então recebo a mensagem "<mensagem2>"
 
 Exemplos:
-  | conta               |          contaEditada              |               mensagem1            |         mensagem2                   |                 
-  | Conta de Teste edit | Conta de Teste edited              | Conta adicionada com sucesso!      | Conta alterada com sucesso!         |
-  | conta 3 edit        |                                    | Conta adicionada com sucesso!      | Informe o nome da conta             |   
-  | Conta edit nome     | Conta mesmo nome                   |  Conta adicionada com sucesso!     |  Já existe uma conta com esse nome! |
+  | conta                  |          mensagem1              |               mensagem2            |                
+  | Conta de Teste remover | Conta adicionada com sucesso!   | Conta removida com sucesso!        |
